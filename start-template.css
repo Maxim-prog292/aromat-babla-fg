@@ -1,0 +1,309 @@
+@font-face {
+  font-family: "Start Headings";
+  src: url("fonts/Заголовки.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Start Italic";
+  src: url("fonts/Курсив.ttf") format("truetype");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Start Text";
+  src: url("fonts/Обычный текст.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.start-panel,
+.screen-start {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  place-items: center;
+  overflow: hidden;
+  padding: 0;
+  background: #005542 !important;
+  color: #004c3d;
+  text-align: center;
+}
+
+.start-panel {
+  display: grid;
+}
+
+.screen-start {
+  display: none;
+}
+
+.screen-start.is-active {
+  display: grid;
+}
+
+.start-panel[hidden],
+.screen-start[hidden] {
+  display: none !important;
+}
+
+.start-panel::before,
+.screen-start::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    url("assets/start-pattern-group10.svg"),
+    url("assets/start-pattern-group10.svg"),
+    url("assets/start-pattern-group17.svg"),
+    url("assets/start-pattern-group10.svg"),
+    url("assets/start-pattern-group10.svg"),
+    url("assets/start-pattern-group10.svg"),
+    url("assets/start-pattern-group10.svg"),
+    url("assets/start-pattern-group10.svg");
+  background-position:
+    15px -77px,
+    825px 60px,
+    1230px 61px,
+    960px 61px,
+    690px -79px,
+    -660px 332px,
+    420px -78px,
+    150px -78px;
+  background-repeat: no-repeat;
+  background-size:
+    1080px 1095px,
+    1080px 1095px,
+    1350px 1095px,
+    1080px 1095px,
+    1080px 1095px,
+    1080px 1095px,
+    1080px 1095px,
+    1080px 1095px;
+}
+
+.start-panel::after,
+.screen-start::after {
+  content: ".";
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  font-family: "Start Italic", serif;
+}
+
+.start-content,
+.screen-start > .start-content {
+  position: relative;
+  z-index: 1;
+  width: 911px;
+  height: 600px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 70px 78px 69px;
+  border: 0;
+  border-radius: 30px !important;
+  background: #9aa89b;
+  color: #004c3d;
+  box-shadow: 0 28px 46px rgba(5, 20, 10, 0.28);
+  text-align: center;
+}
+
+#startScreen .start-content {
+  width: 911px;
+  height: 600px;
+  min-height: 600px;
+  padding: 70px 78px 69px;
+}
+
+#startScreen #startTitle {
+  max-width: 760px;
+  font-family: "Start Headings", Georgia, serif;
+  font-size: 80px;
+  line-height: 0.95;
+  color: #004c3d;
+}
+
+#startScreen #startText {
+  max-width: 760px;
+  margin: 30px 0 0;
+  font-family: "Start Text", Arial, sans-serif;
+  font-size: 32px;
+  line-height: 34px;
+  color: #004c3d;
+}
+
+#startScreen #startButton {
+  width: 650px !important;
+  height: 137px !important;
+  min-width: 650px !important;
+  min-height: 137px !important;
+  margin-top: auto;
+  font-family: "Start Headings", Georgia, serif !important;
+  font-size: 64px !important;
+}
+
+.start-kicker,
+.brand-mark {
+  display: none !important;
+}
+
+.start-content h1,
+.start-content h2,
+.screen-start .start-content h1 {
+  max-width: 760px;
+  margin: 0;
+  color: #004c3d;
+  font-family: "Start Headings", Georgia, serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-align: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-transform: none;
+  white-space: normal;
+}
+
+.start-content p:not(.start-kicker),
+.screen-start .start-content p {
+  max-width: 760px;
+  margin: 30px 0 0;
+  color: #004c3d;
+  font-family: "Start Text", Arial, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.start-content > button,
+.screen-start .start-content .primary-button,
+.start-content .start-actions > button {
+  width: 650px !important;
+  height: 137px !important;
+  min-width: 650px !important;
+  min-height: 137px !important;
+  margin-top: auto;
+  padding: 0 !important;
+  border: 0;
+  border-radius: 20px !important;
+  background: rgba(5, 20, 10, 0.2) !important;
+  color: #e7e0d2 !important;
+  box-shadow: 0 4px 14px rgba(5, 20, 10, 0.18);
+  font-family: "Start Headings", Georgia, serif !important;
+  font-size: 64px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.start-content > button:active,
+.screen-start .start-content .primary-button:active,
+.start-content .start-actions > button:active {
+  transform: none !important;
+  background: rgba(5, 20, 10, 0.4) !important;
+  box-shadow: 0 4px 14px rgba(5, 20, 10, 0.22);
+}
+
+.start-content .start-actions {
+  width: 650px;
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.start-content .start-actions > button {
+  margin-top: 0;
+}
+
+.start-content .level-menu {
+  width: 650px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.start-content .level-button {
+  min-height: 52px;
+  padding: 8px 12px;
+  border-radius: 14px !important;
+  background: rgba(5, 20, 10, 0.2);
+  color: #e7e0d2;
+  box-shadow: none;
+  font-family: "Start Text", Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.start-content .level-button:active {
+  transform: none;
+  background: rgba(5, 20, 10, 0.4);
+}
+
+.start-content .level-button small {
+  display: none;
+}
+
+.start-content:has(.start-actions) {
+  padding-top: 52px;
+  padding-bottom: 40px;
+}
+
+.start-content:has(.start-actions) h2 {
+  font-size: 72px;
+}
+
+.start-content:has(.start-actions) p:not(.start-kicker) {
+  margin-top: 22px;
+  font-size: 28px;
+  line-height: 31px;
+}
+
+@media (max-width: 1300px), (max-height: 760px) {
+  .start-content,
+  .screen-start > .start-content {
+    width: 820px;
+    height: 540px;
+    min-height: 540px;
+    padding: 56px 70px 56px;
+  }
+
+  .start-content h1,
+  .start-content h2,
+  .screen-start .start-content h1 {
+    font-size: 68px;
+  }
+
+  .start-content p:not(.start-kicker),
+  .screen-start .start-content p {
+    font-size: 28px;
+    line-height: 31px;
+  }
+
+  .start-content > button,
+  .screen-start .start-content .primary-button,
+  .start-content .start-actions > button {
+    width: 600px !important;
+    height: 118px !important;
+    min-width: 600px !important;
+    min-height: 118px !important;
+    font-size: 58px !important;
+  }
+}

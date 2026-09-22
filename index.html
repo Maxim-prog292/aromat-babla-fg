@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#005542">
+  <title>Собери аромат денег</title>
+  <link rel="stylesheet" href="styles.css?v=20260914-1">
+  <link rel="stylesheet" href="exhibit-ui.css">
+  <link rel="stylesheet" href="museum-v2.css?v=20260913-2055">
+</head>
+<body>
+  <main id="app" class="app" aria-live="polite">
+    <canvas id="aromaCanvas" class="aroma-canvas" width="1920" height="1080"></canvas>
+
+    <section id="startScreen" class="screen screen-start is-active">
+      <div class="start-content">
+        <h1 id="startTitle">Собери аромат денег</h1>
+        <p id="startText">Выберите три ингредиента и узнайте, какой финансовый аромат подходит именно вам.</p>
+        <button id="startButton" class="primary-button">Старт</button>
+      </div>
+    </section>
+
+    <section id="selectScreen" class="screen screen-select" aria-label="Выбор ингредиентов">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">Смешивание аромата</div>
+          <h2 id="selectTitle">Выберите 3 ингредиента</h2>
+        </div>
+        <div id="counter" class="counter">0/3</div>
+      </header>
+
+      <div id="ingredientGrid" class="ingredient-grid"></div>
+
+      <div id="mixZone" class="mix-zone">
+        <div class="mix-ring"></div>
+        <div class="mix-content">
+          <div class="mix-label">Перетащите ингредиент сюда</div>
+          <div id="selectedList" class="selected-list"></div>
+        </div>
+      </div>
+
+      <footer class="actionbar">
+        <button id="resetButton" class="reset-button" aria-label="Сбросить ингредиенты" title="Сбросить ингредиенты">↻</button>
+        <button id="mixButton" class="primary-button" disabled>Получить аромат</button>
+      </footer>
+    </section>
+
+    <section id="mixingScreen" class="screen screen-mixing">
+      <div class="mixing-panel">
+        <div class="orbital-loader"></div>
+        <h2 id="mixingTitle">Смешиваем ваш финансовый аромат...</h2>
+        <p id="mixingText">Частицы соединяются, цвета перетекают, формула становится точнее.</p>
+        <div id="mixingIngredients" class="mixing-ingredients"></div>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen screen-result">
+      <div class="result-topline">
+        <div id="resultNumber" class="result-number">№1</div>
+        <h2 id="resultTitle">Финансовая стабильность</h2>
+        <p id="resultDescription"></p>
+      </div>
+      <button id="restartButton" class="primary-button result-finish">Закончить</button>
+    </section>
+  </main>
+
+  <script src="exhibit-ui.js"></script>
+  <script src="gpu-particles.js?v=20260914-7"></script>
+  <script src="app.js?v=20260914-10"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "Exhibit Cormorant";
+  src: url("fonts/Заголовки.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exhibit Commons";
+  src: url("fonts/Обычный текст.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --exhibit-forest-950: #0b110d;
+  --exhibit-forest-900: #101812;
+  --exhibit-forest-800: #18251c;
+  --exhibit-forest-700: #243629;
+  --exhibit-paper-100: #f6edd9;
+  --exhibit-paper-200: #f0e5cb;
+  --exhibit-paper-300: #ddcfaf;
+  --exhibit-ink: #162019;
+  --exhibit-gold: #c8a15a;
+  --exhibit-gold-light: #e4c984;
+  --exhibit-red: #9f3b32;
+  --exhibit-radius: 12px;
+  --exhibit-radius-large: 20px;
+  --exhibit-shadow: 0 18px 54px rgba(4, 8, 5, 0.38);
+  --exhibit-display: "Exhibit Cormorant", Georgia, "Times New Roman", serif;
+  --exhibit-body: "Exhibit Commons", Inter, Arial, sans-serif;
+}
+
+html.exhibit-ui {
+  --bg: var(--exhibit-forest-900);
+  --field: var(--exhibit-forest-900);
+  --field-light: var(--exhibit-forest-700);
+  --deep: var(--exhibit-forest-950);
+  --panel: var(--exhibit-paper-200);
+  --paper: var(--exhibit-paper-200);
+  --paper-light: var(--exhibit-paper-100);
+  --ink: var(--exhibit-ink);
+  --ink-deep: var(--exhibit-forest-950);
+  --muted: #526057;
+  --accent: var(--exhibit-gold);
+  --gold: var(--exhibit-gold);
+  --green: #557a5e;
+  --blue: var(--exhibit-forest-800);
+  --red: var(--exhibit-red);
+  --danger: var(--exhibit-red);
+  --warning: var(--exhibit-gold-light);
+  --line: rgba(200, 161, 90, 0.62);
+  --shadow: rgba(3, 7, 4, 0.34);
+  --radius: 12px;
+  --radius-main: 20px;
+  --radius-large: 16px;
+  --radius-medium: 12px;
+  --radius-small: 12px;
+}
+
+html.exhibit-ui,
+html.exhibit-ui body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+html.exhibit-ui .app {
+  background:
+    linear-gradient(90deg, rgba(240, 229, 203, 0.022) 1px, transparent 1px) 0 0 / 54px 54px,
+    linear-gradient(0deg, rgba(240, 229, 203, 0.018) 1px, transparent 1px) 0 0 / 54px 54px,
+    radial-gradient(circle at 17% 12%, rgba(200, 161, 90, 0.16), transparent 31%),
+    radial-gradient(circle at 84% 78%, rgba(159, 59, 50, 0.08), transparent 34%),
+    var(--exhibit-forest-900);
+}
+
+html.exhibit-ui .exhibit-reset {
+  right: 220px;
+}
+
+html.exhibit-ui :where(.primary-button, .counter, .ingredient-card, .mixing-panel) {
+  border-radius: 12px;
+}
+
+html.exhibit-ui :where(.kicker, .eyebrow, .section-eyebrow, .result-eyebrow, .progress, .start-kicker) {
+  color: var(--exhibit-gold-light);
+}
+
+html.exhibit-ui :where(.primary, .primary-button, .start-button) {
+  color: var(--exhibit-ink);
+  background: linear-gradient(180deg, var(--exhibit-gold-light), var(--exhibit-gold));
+}
+
+html.exhibit-ui :where(.secondary) {
+  color: var(--exhibit-paper-100);
+  background: var(--exhibit-forest-800);
+  border: 1px solid rgba(228, 201, 132, 0.38);
+}
+
+html.exhibit-ui body {
+  color: var(--exhibit-paper-100);
+  background:
+    radial-gradient(circle at 18% 13%, rgba(200, 161, 90, 0.13), transparent 24%),
+    radial-gradient(circle at 84% 84%, rgba(159, 59, 50, 0.11), transparent 28%),
+    linear-gradient(145deg, var(--exhibit-forest-900), var(--exhibit-forest-950));
+  font-family: var(--exhibit-body);
+}
+
+html.exhibit-ui body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+  background-size: 5px 5px;
+  mix-blend-mode: soft-light;
+}
+
+html.exhibit-ui :where(h1, h2, h3, .title, .headline, .screen-title) {
+  font-family: var(--exhibit-display);
+  letter-spacing: 0.01em;
+}
+
+html.exhibit-ui :where(button, [role="button"], .card, .panel, .modal, .dialog, .tile, .choice, .fact) {
+  border-radius: var(--exhibit-radius);
+}
+
+html.exhibit-ui :where(button, [role="button"]) {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.exhibit-reset {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  z-index: 10000;
+  display: grid;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(228, 201, 132, 0.82);
+  border-radius: 999px !important;
+  color: var(--exhibit-paper-100);
+  background: rgba(16, 24, 18, 0.88);
+  box-shadow: 0 10px 30px rgba(3, 7, 4, 0.34), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.exhibit-reset:hover,
+.exhibit-reset:focus-visible {
+  border-color: var(--exhibit-gold-light);
+  background: rgba(36, 54, 41, 0.96);
+  outline: none;
+  transform: scale(1.045);
+}
+
+.exhibit-reset:active {
+  transform: scale(0.95) rotate(-18deg);
+}
+
+.exhibit-reset svg {
+  width: 34px;
+  height: 34px;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.exhibit-reset__ring {
+  stroke: var(--exhibit-gold-light);
+}
+
+.exhibit-reset.is-resetting svg {
+  animation: exhibit-reset-spin 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes exhibit-reset-spin {
+  to { transform: rotate(-360deg); }
+}
+
+@media (max-width: 1100px), (max-height: 760px) {
+  .exhibit-reset {
+    top: 18px;
+    right: 18px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .exhibit-reset svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exhibit-reset,
+  .exhibit-reset svg {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+html.exhibit-ui .app {
+  background:
+    linear-gradient(90deg, rgba(8, 13, 10, 0.82), rgba(8, 13, 10, 0.55) 50%, rgba(8, 13, 10, 0.84)),
+    url("assets/backgrounds/aroma-lab.png") center / cover no-repeat;
+}

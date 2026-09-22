@@ -1,0 +1,12 @@
+.app:after{content:"";position:absolute;z-index:0;inset:24px;pointer-events:none;border:1px solid rgba(228,201,132,.16);border-radius:20px}
+.counter,.mixing-panel,.ingredient-card{border-radius:12px!important}.ingredient-card{box-shadow:0 12px 28px rgba(0,0,0,.26)}
+.ingredient-card.is-selected{box-shadow:0 0 0 3px rgba(228,201,132,.68),0 14px 32px rgba(0,0,0,.34)}
+.mix-zone{border-color:rgba(228,201,132,.38)}
+#resetButton{display:none!important}
+.actionbar{justify-content:center}
+.primary-button{border-radius:12px!important;background:linear-gradient(180deg,#e4c984,#c8a15a)!important;color:#172019!important}
+.result-topline{width:min(560px,calc(100% - 320px));padding:0;border:0;border-radius:0;background:transparent;color:#f7d88d;box-shadow:none}
+.result-number{width:58px;height:58px;margin-bottom:10px;background:rgba(5,7,13,.42);font-size:20px}
+.result-topline h2{margin-bottom:8px;font-size:38px}
+.result-topline p{max-width:560px;font-size:18px}
+.exhibit-reset{top:44px!important;right:220px!important}
