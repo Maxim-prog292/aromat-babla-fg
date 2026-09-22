@@ -1210,7 +1210,9 @@ function emberSheetTarget(particle, time) {
   const rotatedX = x * Math.cos(angle) - z * Math.sin(angle);
   const rotatedZ = x * Math.sin(angle) + z * Math.cos(angle);
   x = rotatedX + layer * .28;
-  y -= .32;
+  // Keep the carrier centred on the viewport at every resolution. A fixed
+  // negative Y offset is magnified by screenScale and visibly pushes the
+  // whole cloud down on a 1920×1080 exhibit display.
   z = rotatedZ - layer * .38;
 
   const depth = Math.max(3.7, 5.1 - z);

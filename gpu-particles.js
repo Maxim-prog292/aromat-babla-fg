@@ -136,7 +136,8 @@ vec3 sheet(vec2 uv,float layer,float phaseSeed) {
   p+=.012*vec3(sin(29.*uv.x+11.*uv.y+.4*uTime),sin(17.*uv.x-23.*uv.y-.3*uTime),sin(21.*uv.x+19.*uv.y+.2*uTime));
   float angle=.18*sin(.13*uTime)+mod(layer,3.)*.48*.37;
   p.xz=mat2(cos(angle),-sin(angle),sin(angle),cos(angle))*p.xz;
-  p.y-=.32;
+  // The carrier origin is the exact viewport centre. Avoid a fixed vertical
+  // shift because the following scale makes it resolution-dependent.
   p.x+=mod(layer,3.)*.48*.28;
   p.z-=mod(layer,3.)*.48*.38;
   float depth=max(3.7,5.1-p.z);
